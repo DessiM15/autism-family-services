@@ -12,13 +12,13 @@ import { telHref } from "@/lib/utils";
 
 /* One photograph per step, so the sequence reads as a picture story. */
 const stepImages = [
-  "service-schools",
-  "visit-01",
-  "visit-01",
-  "visit-05",
-  "visit-03",
-  "visit-02",
-  "visit-04",
+  "hero-07",            // arriving together
+  "aba-02",             // checking in
+  "service-tutoring",   // waiting
+  "visit-05",           // meeting the clinician
+  "visit-01",           // the therapy room
+  "visit-02",           // starting with play
+  "service-counseling", // talking before you leave
 ];
 
 /**

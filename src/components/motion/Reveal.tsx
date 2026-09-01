@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
-import type { ElementType, ReactNode } from "react";
+import { motion, useInView, type Variants } from "motion/react";
+import { useRef, type ElementType, type ReactNode } from "react";
 import { useMotionAllowed } from "@/components/calm/CalmModeProvider";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +31,8 @@ const variants: Record<Variant, Variants> = {
   },
 };
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export interface RevealProps {
   children: ReactNode;
   variant?: Variant;
@@ -43,20 +45,25 @@ export interface RevealProps {
   id?: string;
 }
 
+/**
+ * Plays once when the element scrolls into view.
+ *
+ * The decision and the animated body are separate components on purpose.
+ * `useMotionAllowed()` is false until hydration, so a single component that
+ * early-returned a plain tag would run `useInView` against a ref that was
+ * never attached — the observer would watch nothing and the element would
+ * stay at its hidden state forever. Splitting them means the ref is attached
+ * on the animated body's very first render.
+ */
 export function Reveal({
   children,
-  variant = "up",
-  delay = 0,
-  duration = 0.85,
   className,
   as = "div",
-  amount = 0.25,
   id,
+  ...rest
 }: RevealProps) {
   const animate = useMotionAllowed();
-  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
 
-  // Calm Mode (and the pre-hydration pass) renders the finished state.
   if (!animate) {
     const Tag = as as ElementType;
     return (
@@ -67,45 +74,82 @@ export function Reveal({
   }
 
   return (
+    <RevealBody className={className} as={as} id={id} {...rest}>
+      {children}
+    </RevealBody>
+  );
+}
+
+function RevealBody({
+  children,
+  variant = "up",
+  delay = 0,
+  duration = 0.85,
+  className,
+  as = "div",
+  amount = 0.2,
+  id,
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount });
+  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
+
+  /**
+   * The mask variant hides the element with `clip-path`, and Chrome's
+   * IntersectionObserver reports zero intersection for a clip-collapsed
+   * element — so observing the clipped element itself deadlocks: it can
+   * never come into view because it is invisible. The observer therefore
+   * goes on an unclipped outer element and the clip animates on a child.
+   */
+  if (variant === "mask") {
+    return (
+      <MotionTag
+        ref={ref}
+        id={id}
+        className={cn(className)}
+        initial="hidden"
+        animate={inView ? "shown" : "hidden"}
+        variants={{ hidden: {}, shown: {} }}
+      >
+        <motion.div
+          variants={variants.mask}
+          transition={{ duration, delay, ease: EASE }}
+        >
+          {children}
+        </motion.div>
+      </MotionTag>
+    );
+  }
+
+  return (
     <MotionTag
+      ref={ref}
       id={id}
       className={cn(className)}
       initial="hidden"
-      whileInView="shown"
-      viewport={{ once: true, amount }}
+      animate={inView ? "shown" : "hidden"}
       variants={variants[variant]}
-      transition={{
-        duration,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration, delay, ease: EASE }}
     >
       {children}
     </MotionTag>
   );
 }
 
-/**
- * Staggers its direct children. Pair with <Reveal> inside, or use the
- * `RevealItem` below for the simple case.
- */
-export function RevealGroup({
-  children,
-  className,
-  stagger = 0.09,
-  delay = 0,
-  amount = 0.2,
-  as = "div",
-}: {
+/* ------------------------------------------------------------------ */
+
+interface GroupProps {
   children: ReactNode;
   className?: string;
   stagger?: number;
   delay?: number;
   amount?: number;
   as?: ElementType;
-}) {
+}
+
+/** Staggers its direct children. Pair with `RevealItem` inside. */
+export function RevealGroup({ children, className, as = "div", ...rest }: GroupProps) {
   const animate = useMotionAllowed();
-  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
 
   if (!animate) {
     const Tag = as as ElementType;
@@ -113,11 +157,30 @@ export function RevealGroup({
   }
 
   return (
+    <RevealGroupBody className={className} as={as} {...rest}>
+      {children}
+    </RevealGroupBody>
+  );
+}
+
+function RevealGroupBody({
+  children,
+  className,
+  stagger = 0.09,
+  delay = 0,
+  amount = 0.15,
+  as = "div",
+}: GroupProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount });
+  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
+
+  return (
     <MotionTag
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="shown"
-      viewport={{ once: true, amount }}
+      animate={inView ? "shown" : "hidden"}
       variants={{
         hidden: {},
         shown: { transition: { staggerChildren: stagger, delayChildren: delay } },
@@ -128,6 +191,7 @@ export function RevealGroup({
   );
 }
 
+/** A child of `RevealGroup`. Inherits the group's stagger. */
 export function RevealItem({
   children,
   className,
@@ -153,7 +217,7 @@ export function RevealItem({
     <MotionTag
       className={className}
       variants={variants[variant]}
-      transition={{ duration, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration, ease: EASE }}
     >
       {children}
     </MotionTag>

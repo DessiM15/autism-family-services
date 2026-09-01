@@ -14,6 +14,18 @@ Three things that will bite you if you skip them:
    finished state when it returns `false`. Calm Mode is a promise this
    organisation makes to its clients, not a nice-to-have.
 
+   Two traps this cost us once already, both live in `src/components/motion/`:
+   - `useMotionAllowed()` is `false` until hydration, so a component that
+     early-returns a plain tag **before** its motion element mounts will run
+     `useInView` against a ref that never attaches — the observer watches
+     nothing and the element stays hidden forever. Always split into a
+     decision component and an animated body (see `Reveal`, `Parallax`,
+     `Hero`).
+   - Never let a hidden state collapse the element you are observing.
+     Chrome's IntersectionObserver reports zero intersection for a
+     `clip-path`-collapsed element, so it can never come into view. The mask
+     reveal observes an unclipped wrapper and animates a child.
+
 3. **Never add health questions to a public form**, and never let the chatbot
    diagnose, assess symptoms, or state which insurance is accepted. See the
    "two rules" section of the README.
