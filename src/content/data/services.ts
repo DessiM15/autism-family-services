@@ -28,8 +28,8 @@ export const services: Service[] = [
     audience: "families",
     image: "/images/service-aba.jpg",
     detail: {
-      en: "We deliver ABA through a naturalistic teaching style — built around play, motivation and real moments — rather than the rigid drill format many families expect.",
-      es: "Ofrecemos ABA mediante un estilo de enseñanza naturalista — basado en el juego, la motivación y los momentos reales — en lugar del formato rígido de repeticiones que muchas familias esperan.",
+      en: "We deliver ABA through a naturalistic teaching style, built around play, motivation and real moments, rather than the rigid drill format many families expect.",
+      es: "Ofrecemos ABA mediante un estilo de enseñanza naturalista, basado en el juego, la motivación y los momentos reales, en lugar del formato rígido de repeticiones que muchas familias esperan.",
     },
   },
   {
@@ -181,8 +181,8 @@ export const audienceMeta: Record<Audience, { label: Localized; blurb: Localized
   families: {
     label: { en: "For Families", es: "Para Familias" },
     blurb: {
-      en: "Therapy, assessment and training for children, teens and adults — and for the people who care for them.",
-      es: "Terapia, evaluación y capacitación para niños, adolescentes y adultos — y para quienes los cuidan.",
+      en: "Therapy, assessment and training for children, teens and adults, and for the people who care for them.",
+      es: "Terapia, evaluación y capacitación para niños, adolescentes y adultos, y para quienes los cuidan.",
     },
   },
   schools: {

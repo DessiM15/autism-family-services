@@ -101,7 +101,7 @@ export function MobileNav({ onDark = false }: { onDark?: boolean }) {
                               type="button"
                               onClick={() => setExpanded(isExpanded ? null : item.href)}
                               aria-expanded={isExpanded}
-                              aria-label={`${pick(item.label)} — ${t.common.menu}`}
+                              aria-label={pick(item.label)}
                               className="grid w-14 shrink-0 place-items-center text-ink-500"
                             >
                               <ChevronDown

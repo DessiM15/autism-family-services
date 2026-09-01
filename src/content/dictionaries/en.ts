@@ -70,13 +70,17 @@ export const en = {
     heroEmphasis: "Purposeful",
     heroLine3: "Life",
     heroSub:
-      "ABA therapy, counseling and diagnostic services for autism, ADHD, anxiety, depression and academic struggles — right here in Beaumont, Texas.",
+      "ABA therapy, counseling and diagnostic services for autism, ADHD, anxiety, depression and academic struggles, right here in Beaumont, Texas.",
     heroCtaPrimary: "Start Here",
     heroCtaSecondary: "Call 409-242-1559",
 
     creds: {
       cac: "Beaumont's First and ONLY Certified Autism Center",
       acas: "Beaumont's ONLY Advanced Certified Autism Specialist",
+      /* Split across two lines for the hero lockup. Same claim, set as
+         editorial credit type rather than as a UI chip. */
+      cacShort: "Certified Autism Center",
+      cacQualifier: "Beaumont's first and only",
     },
 
     /* verbatim scripture */
@@ -121,7 +125,7 @@ export const en = {
       "Licensed Professional Counselor | Licensed Behavior Analyst | Advanced Certified Autism Specialist",
     jenHeading: "The only Advanced Certified Autism Specialist in Beaumont.",
     jenBody:
-      "Two Master's degrees. A post-graduate certificate in Applied Behavior Analysis. Gold-standard diagnostic protocols. More than a decade of educational leadership and counseling. And, above all, a family of her own — which is where her approach begins.",
+      "Two Master's degrees. A post-graduate certificate in Applied Behavior Analysis. Gold-standard diagnostic protocols. More than a decade of educational leadership and counseling. And, above all, a family of her own, which is where her approach begins.",
     jenCta: "Read Jennifer's story",
 
     servicesEyebrow: "What we offer",
@@ -145,6 +149,20 @@ export const en = {
     visitBody:
       "A new place is a lot to ask of a child. So we made a walkthrough you can look at together, at home, before you ever step through the door.",
     visitCta: "See your first visit",
+
+    startHereEyebrow: "Not sure where to begin?",
+    startHereHeading: "Three questions. Then we point you to the right door.",
+    startHereBody:
+      "Tell us who you are here for and what would help most. We will show you exactly where to start. And you can always just call us instead.",
+
+    eventsEyebrow: "Running right now",
+    eventsHeading: "Programmes you can join this month.",
+    eventsBody:
+      "These run on a regular cadence rather than one-off dates. Call to ask about the next session, or register online.",
+    eventsCta: "See everything on offer",
+    register: "Register",
+    alsoRunning: "Also running:",
+    askUs: "Ask us about it",
 
     ctaHeading: "Let's start with a conversation.",
     ctaBody:
@@ -228,7 +246,7 @@ export const en = {
       "Rates are listed per session unless otherwise noted. Call 409-242-1559 with any question about cost or coverage.",
     insuranceHeading: "Insurance & payment",
     insuranceBody:
-      "Coverage varies by plan and by service. Call the billing office at 409-242-1559 and we will verify your benefits before your first appointment — no obligation.",
+      "Coverage varies by plan and by service. Call the billing office at 409-242-1559 and we will verify your benefits before your first appointment, at no obligation.",
     insurancePlaceholder:
       "A full list of accepted insurance plans is being confirmed with our billing office and will be published here.",
     duration: "Duration",
@@ -275,7 +293,7 @@ export const en = {
     title: "Meet Our Team",
     heading: "The people who will actually be in the room.",
     body:
-      "Six clinicians, technicians and leaders — most of them from Southeast Texas, all of them here for the same reason.",
+      "Six clinicians, technicians and leaders. Most of them from Southeast Texas, all of them here for the same reason.",
     credentialsLabel: "Credentials",
     memberOf: "of",
   },
@@ -290,7 +308,7 @@ export const en = {
     steps: [
       {
         title: "You arrive at 6642 Phelan Blvd",
-        body: "There is parking directly outside. The front door is on the ground floor — no stairs, no lift.",
+        body: "There is parking directly outside. The front door is on the ground floor. No stairs, no lift.",
       },
       {
         title: "You check in at the front desk",
@@ -324,7 +342,7 @@ export const en = {
       "Fluorescent overhead lighting can be turned off in most rooms",
       "There is a quieter space away from the waiting area",
       "Headphones, comfort objects and preferred snacks are always welcome",
-      "You may walk the building before the first appointment — just call ahead",
+      "You may walk the building before the first appointment; just call ahead",
     ],
     photoNote:
       "Photographs on this page are illustrative. Photographs of our actual clinic are coming soon.",
@@ -390,7 +408,7 @@ export const en = {
     title: "Gen XY Counseling Center",
     heading: "Counseling for the things that do not have a diagnosis code.",
     body:
-      "Gen XY Counseling Center is our counseling practice — individual, couples and family sessions for anxiety, depression, ADHD, academic pressure and the ordinary hard parts of being a person.",
+      "Gen XY Counseling Center is our counseling practice: individual, couples and family sessions for anxiety, depression, ADHD, academic pressure and the ordinary hard parts of being a person.",
     forWho: "Who it is for",
     forWhoList: [
       "Teenagers and young adults finding their footing",
@@ -407,7 +425,7 @@ export const en = {
     body: "What is running right now at the clinic.",
     shapeHeading: "The SHAPE Day Program",
     shapeBody:
-      "Structured Habits for Adaptive Progress and Emotion — an innovative program developed by Jennifer Ramirez to provide structured emotional and behavioral support, adaptable to both children and adults, including those with dementia.",
+      "Structured Habits for Adaptive Progress and Emotion. An innovative program developed by Jennifer Ramirez to provide structured emotional and behavioral support, adaptable to both children and adults, including those with dementia.",
     adhdHeading: "ADHD Training",
     adhdBody: "Training sessions for families and professionals on supporting ADHD.",
     socialHeading: "Social Skills Groups",
@@ -434,6 +452,21 @@ export const en = {
     valuesHeading: "Our values",
   },
 
+  /* ---------------------------------------------------------- RESOURCES */
+  resources: {
+    title: "Resources",
+    heading: "Everything we can hand you.",
+    body:
+      "Funding, preparation and plain explanations: the things families ask us for most, gathered in one place.",
+    grantsBlurb: "Twenty-one outside funding programmes, filtered by what you need it for.",
+    firstVisitBlurb: "A step-by-step picture walkthrough you can look at together at home.",
+    abaBlurb: "What ABA actually is, how we practise it, and who it helps.",
+    happeningBlurb: "The SHAPE day programme, ADHD training and social skills groups.",
+    eventsBlurb: "Workshops and parent support groups running right now.",
+    teamBlurb: "The six people who will actually be in the room.",
+    open: "Open",
+  },
+
   /* ---------------------------------------------------------- CONTACT */
   contact: {
     title: "Contact",
@@ -451,7 +484,7 @@ export const en = {
       bestTime: "Best time to reach you",
       reason: "What can we help with?",
       message: "Anything else we should know?",
-      messagePlaceholder: "No medical details, please — just how we can help.",
+      messagePlaceholder: "No medical details, please. Just how we can help.",
       preferredLanguage: "Preferred language",
     },
     bestTimes: {
@@ -470,7 +503,7 @@ export const en = {
     },
     submit: "Request a callback",
     submitting: "Sending…",
-    successHeading: "Thank you — we have your details.",
+    successHeading: "Thank you. We have your details.",
     successBody:
       "Someone from the clinic will call you back. If it is urgent, please call 409-242-1559 directly.",
     errorHeading: "That didn't send.",
@@ -485,12 +518,12 @@ export const en = {
     title: "Ask Autism Family Services",
     subtitle: "Answers about services, rates and getting started",
     greeting:
-      "Hi — I can help with services, rates, insurance questions, directions and how to get started. What brings you here today?",
+      "Hi! I can help with services, rates, insurance questions, directions and how to get started. What brings you here today?",
     placeholder: "Type your message…",
     send: "Send",
     thinking: "Typing…",
     disclaimer:
-      "I'm an assistant, not a clinician. I can't give medical or diagnostic advice — please don't share health details here.",
+      "I'm an assistant, not a clinician. I can't give medical or diagnostic advice, so please don't share health details here.",
     escalate: "Call 409-242-1559",
     escalateNote: "Want to talk to a person?",
     languageNote: "Puedes escribirme en español.",

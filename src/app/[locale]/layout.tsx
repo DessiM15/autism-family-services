@@ -151,16 +151,18 @@ export default async function LocaleLayout({
       className={`${fraunces.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Sets data-calm before first paint so nobody who asked for
-            stillness ever sees the page move. */}
+      <body>
+        {/*
+          These live at the top of <body>, not in <head>. The App Router owns
+          <head> and reconciles it itself; raw script tags placed there produce
+          an intermittent hydration mismatch. As the first thing in the body,
+          the calm script still runs before any content paints.
+        */}
         <script dangerouslySetInnerHTML={{ __html: calmModeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-      </head>
-      <body>
         <CalmModeProvider>
           <LocaleProvider locale={locale as Locale}>
             <SmoothScroll />

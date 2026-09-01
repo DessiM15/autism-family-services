@@ -66,13 +66,15 @@ export const es: Dictionary = {
     heroEmphasis: "Propósito",
     heroLine3: "",
     heroSub:
-      "Terapia ABA, consejería y servicios de diagnóstico para autismo, TDAH, ansiedad, depresión y dificultades académicas — aquí mismo en Beaumont, Texas.",
+      "Terapia ABA, consejería y servicios de diagnóstico para autismo, TDAH, ansiedad, depresión y dificultades académicas, aquí mismo en Beaumont, Texas.",
     heroCtaPrimary: "Empieza aquí",
     heroCtaSecondary: "Llama al 409-242-1559",
 
     creds: {
       cac: "El primer y ÚNICO Centro Certificado en Autismo de Beaumont",
       acas: "La ÚNICA Especialista Avanzada Certificada en Autismo de Beaumont",
+      cacShort: "Centro Certificado en Autismo",
+      cacQualifier: "El primero y único de Beaumont",
     },
 
     verseRef: "Eclesiastés 3:1",
@@ -113,7 +115,7 @@ export const es: Dictionary = {
       "Consejera Profesional Licenciada | Analista de Conducta Licenciada | Especialista Avanzada Certificada en Autismo",
     jenHeading: "La única Especialista Avanzada Certificada en Autismo de Beaumont.",
     jenBody:
-      "Dos maestrías. Un certificado de posgrado en Análisis Conductual Aplicado. Protocolos de diagnóstico de referencia. Más de una década de liderazgo educativo y consejería. Y, sobre todo, una familia propia — que es donde comienza su enfoque.",
+      "Dos maestrías. Un certificado de posgrado en Análisis Conductual Aplicado. Protocolos de diagnóstico de referencia. Más de una década de liderazgo educativo y consejería. Y, sobre todo, una familia propia, que es donde comienza su enfoque.",
     jenCta: "Lee la historia de Jennifer",
 
     servicesEyebrow: "Lo que ofrecemos",
@@ -136,6 +138,20 @@ export const es: Dictionary = {
     visitBody:
       "Un lugar nuevo es mucho pedirle a un niño. Por eso creamos un recorrido que pueden ver juntos, en casa, antes de cruzar la puerta.",
     visitCta: "Ver tu primera visita",
+
+    startHereEyebrow: "¿No sabes por dónde empezar?",
+    startHereHeading: "Tres preguntas. Después te señalamos la puerta correcta.",
+    startHereBody:
+      "Dinos por quién vienes y qué te ayudaría más. Te mostraremos exactamente dónde empezar. Y siempre puedes simplemente llamarnos.",
+
+    eventsEyebrow: "En marcha ahora",
+    eventsHeading: "Programas a los que puedes unirte este mes.",
+    eventsBody:
+      "Estos funcionan con una frecuencia regular, no en fechas puntuales. Llama para preguntar por la próxima sesión o regístrate en línea.",
+    eventsCta: "Ver todo lo que ofrecemos",
+    register: "Registrarse",
+    alsoRunning: "También en marcha:",
+    askUs: "Pregúntanos",
 
     ctaHeading: "Empecemos con una conversación.",
     ctaBody:
@@ -216,7 +232,7 @@ export const es: Dictionary = {
       "Las tarifas son por sesión salvo que se indique lo contrario. Llama al 409-242-1559 con cualquier duda sobre costos o cobertura.",
     insuranceHeading: "Seguro y pago",
     insuranceBody:
-      "La cobertura varía según el plan y el servicio. Llama a la oficina de facturación al 409-242-1559 y verificaremos tus beneficios antes de tu primera cita — sin compromiso.",
+      "La cobertura varía según el plan y el servicio. Llama a la oficina de facturación al 409-242-1559 y verificaremos tus beneficios antes de tu primera cita, sin ningún compromiso.",
     insurancePlaceholder:
       "La lista completa de seguros aceptados se está confirmando con nuestra oficina de facturación y se publicará aquí.",
     duration: "Duración",
@@ -257,7 +273,7 @@ export const es: Dictionary = {
     title: "Conoce a nuestro equipo",
     heading: "Las personas que realmente estarán en la sala.",
     body:
-      "Seis clínicos, técnicos y líderes — la mayoría del sureste de Texas, todos aquí por la misma razón.",
+      "Seis clínicos, técnicos y líderes. La mayoría del sureste de Texas, todos aquí por la misma razón.",
     credentialsLabel: "Credenciales",
     memberOf: "de",
   },
@@ -271,7 +287,7 @@ export const es: Dictionary = {
     steps: [
       {
         title: "Llegas al 6642 Phelan Blvd",
-        body: "Hay estacionamiento justo afuera. La puerta principal está en la planta baja — sin escaleras ni ascensor.",
+        body: "Hay estacionamiento justo afuera. La puerta principal está en la planta baja. Sin escaleras ni ascensor.",
       },
       {
         title: "Te registras en la recepción",
@@ -305,7 +321,7 @@ export const es: Dictionary = {
       "En casi todas las salas se pueden apagar las luces fluorescentes del techo",
       "Hay un espacio más tranquilo, apartado de la sala de espera",
       "Los audífonos, objetos de confort y meriendas preferidas siempre son bienvenidos",
-      "Puedes recorrer el edificio antes de la primera cita — solo llama antes",
+      "Puedes recorrer el edificio antes de la primera cita; solo llama antes",
     ],
     photoNote:
       "Las fotografías de esta página son ilustrativas. Pronto habrá fotografías de nuestra clínica real.",
@@ -366,7 +382,7 @@ export const es: Dictionary = {
     title: "Gen XY Counseling Center",
     heading: "Consejería para lo que no tiene un código de diagnóstico.",
     body:
-      "Gen XY Counseling Center es nuestra práctica de consejería — sesiones individuales, de pareja y familiares para ansiedad, depresión, TDAH, presión académica y las partes difíciles y cotidianas de ser persona.",
+      "Gen XY Counseling Center es nuestra práctica de consejería: sesiones individuales, de pareja y familiares para ansiedad, depresión, TDAH, presión académica y las partes difíciles y cotidianas de ser persona.",
     forWho: "Para quién es",
     forWhoList: [
       "Adolescentes y jóvenes adultos encontrando su camino",
@@ -382,7 +398,7 @@ export const es: Dictionary = {
     body: "Lo que está en marcha ahora mismo en la clínica.",
     shapeHeading: "El programa diurno SHAPE",
     shapeBody:
-      "Structured Habits for Adaptive Progress and Emotion — un programa innovador desarrollado por Jennifer Ramirez para brindar apoyo emocional y conductual estructurado, adaptable tanto a niños como a adultos, incluidas las personas con demencia.",
+      "Structured Habits for Adaptive Progress and Emotion. Un programa innovador desarrollado por Jennifer Ramirez para brindar apoyo emocional y conductual estructurado, adaptable tanto a niños como a adultos, incluidas las personas con demencia.",
     adhdHeading: "Capacitación en TDAH",
     adhdBody: "Sesiones de capacitación para familias y profesionales sobre cómo apoyar el TDAH.",
     socialHeading: "Grupos de habilidades sociales",
@@ -408,6 +424,20 @@ export const es: Dictionary = {
     valuesHeading: "Nuestros valores",
   },
 
+  resources: {
+    title: "Recursos",
+    heading: "Todo lo que podemos ofrecerte.",
+    body:
+      "Financiamiento, preparación y explicaciones claras: lo que más nos piden las familias, reunido en un solo lugar.",
+    grantsBlurb: "Veintiún programas externos de financiamiento, filtrados según lo que necesitas.",
+    firstVisitBlurb: "Un recorrido ilustrado paso a paso que pueden ver juntos en casa.",
+    abaBlurb: "Qué es realmente el ABA, cómo lo practicamos y a quién ayuda.",
+    happeningBlurb: "El programa diurno SHAPE, capacitación en TDAH y grupos de habilidades sociales.",
+    eventsBlurb: "Talleres y grupos de apoyo para padres que están en marcha ahora.",
+    teamBlurb: "Las seis personas que realmente estarán en la sala.",
+    open: "Abrir",
+  },
+
   contact: {
     title: "Contacto",
     heading: "Empecemos con una conversación.",
@@ -423,7 +453,7 @@ export const es: Dictionary = {
       bestTime: "Mejor hora para contactarte",
       reason: "¿En qué podemos ayudarte?",
       message: "¿Algo más que debamos saber?",
-      messagePlaceholder: "Sin datos médicos, por favor — solo cómo podemos ayudarte.",
+      messagePlaceholder: "Sin datos médicos, por favor. Solo cómo podemos ayudarte.",
       preferredLanguage: "Idioma preferido",
     },
     bestTimes: {
@@ -442,7 +472,7 @@ export const es: Dictionary = {
     },
     submit: "Solicitar una llamada",
     submitting: "Enviando…",
-    successHeading: "Gracias — ya tenemos tus datos.",
+    successHeading: "¡Gracias! Ya tenemos tus datos.",
     successBody:
       "Alguien de la clínica te llamará. Si es urgente, por favor llama directamente al 409-242-1559.",
     errorHeading: "No se pudo enviar.",
@@ -456,12 +486,12 @@ export const es: Dictionary = {
     title: "Pregunta a Autism Family Services",
     subtitle: "Respuestas sobre servicios, tarifas y cómo empezar",
     greeting:
-      "Hola — puedo ayudarte con servicios, tarifas, preguntas de seguro, cómo llegar y cómo empezar. ¿Qué te trae por aquí hoy?",
+      "¡Hola! Puedo ayudarte con servicios, tarifas, preguntas de seguro, cómo llegar y cómo empezar. ¿Qué te trae por aquí hoy?",
     placeholder: "Escribe tu mensaje…",
     send: "Enviar",
     thinking: "Escribiendo…",
     disclaimer:
-      "Soy un asistente, no un clínico. No puedo dar consejos médicos ni diagnósticos — por favor no compartas datos de salud aquí.",
+      "Soy un asistente, no un clínico. No puedo dar consejos médicos ni diagnósticos, así que por favor no compartas datos de salud aquí.",
     escalate: "Llama al 409-242-1559",
     escalateNote: "¿Quieres hablar con una persona?",
     languageNote: "You can also write to me in English.",

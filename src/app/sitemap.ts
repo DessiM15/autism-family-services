@@ -10,6 +10,7 @@ const paths = [
   "/team",
   "/about",
   "/first-visit",
+  "/resources",
   "/grants",
   "/careers",
   "/gen-xy",

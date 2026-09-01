@@ -24,6 +24,7 @@ npm run build
 | `/[locale]/team` | Meet the Team — six cinematic scroll profiles |
 | `/[locale]/about` | Story, values, Certified Autism Center, SHAPE |
 | `/[locale]/first-visit` | Seven-step visual walkthrough + sensory notes |
+| `/[locale]/resources` | Hub linking the grant finder, first visit, ABA and events |
 | `/[locale]/grants` | Filterable finder across 21 funding programs |
 | `/[locale]/careers` | Three open roles + application form |
 | `/[locale]/gen-xy` | Gen XY Counseling Center |
@@ -72,7 +73,15 @@ replace the file in `public/images/` and update that one manifest entry** — no
 component changes. `scripts/` has no image tooling checked in; regenerate the
 manifest by hand or re-run the curation from the session notes.
 
-### 4. Typography utilities
+### 4. House style: no em dashes
+Visible copy contains no em dashes. They were removed deliberately (the client
+finds them a tell), and sentences were restructured rather than having the
+punctuation swapped. The chatbot's system prompt carries the same rule, so
+generated replies match. **One exception is intentional**: Jennifer's bio on
+the team page keeps hers, because that copy is verbatim and the client chose
+to preserve it exactly.
+
+### 5. Typography utilities
 Custom type utilities are named `type-display-lg`, `type-lead`, `type-eyebrow`
 — **not** `text-*`. `tailwind-merge` treats every `text-*` class as the
 font-size/colour group and will silently drop `text-display-lg` when it sits

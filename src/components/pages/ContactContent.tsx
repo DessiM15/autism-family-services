@@ -5,6 +5,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { CallbackForm } from "@/components/contact/CallbackForm";
+import { Img } from "@/components/ui/Img";
 import { site, fullAddress, mapsHref } from "@/lib/site";
 import { telHref } from "@/lib/utils";
 
@@ -91,9 +92,18 @@ export function ContactContent() {
                 </div>
               </Reveal>
 
+              {/* What the building actually looks like, so nobody drives past it. */}
+              <Reveal variant="up" delay={0.28}>
+                <Img
+                  name="clinic-exterior"
+                  wrapperClassName="grain mt-10 aspect-[4/3] rounded-2xl border border-cream-300"
+                  sizes="(max-width: 1024px) 92vw, 38vw"
+                />
+              </Reveal>
+
               {/* Map */}
-              <Reveal variant="up" delay={0.3}>
-                <div className="mt-10 overflow-hidden rounded-2xl border border-cream-300">
+              <Reveal variant="up" delay={0.34}>
+                <div className="mt-6 overflow-hidden rounded-2xl border border-cream-300">
                   <iframe
                     title={t.contact.mapLabel}
                     src={`https://www.google.com/maps?q=${encodeURIComponent(fullAddress())}&output=embed`}

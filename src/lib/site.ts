@@ -24,6 +24,12 @@ export const site = {
   /** Beaumont, TX — used for the map embed and LocalBusiness schema. */
   geo: { lat: 30.0836, lng: -94.1697 },
 
+  /**
+   * Their live JotForm registration, linked from the current site's
+   * What's Happening page. Repoint this when the clinic changes forms.
+   */
+  registrationUrl: "https://form.jotform.com/242645201330140",
+
   social: {
     facebook: "https://www.facebook.com/AutismFamilyServicesOfBeaumont",
     youtube: "https://www.youtube.com/@autismfamilyservicesofbea8676",

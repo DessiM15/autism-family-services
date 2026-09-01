@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer-core";
 import fs from "node:fs";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const base = "http://localhost:3001";
+const base = "http://localhost:3005";
 const out = process.env.OUT || "/tmp/full";
 fs.mkdirSync(out, { recursive: true });
 

@@ -33,33 +33,44 @@ interface Layer {
   rotate?: number;
 }
 
-/* Two outer columns that keep replenishing from below, so the stage is
-   never empty and the centre column is never crossed. Later photographs
-   start further down and rise into view as the earlier ones exit the top. */
+/* A full scatter: photographs cross the whole frame, including behind the
+   headline, and keep replenishing from below so the stage is never empty.
+   Legibility is handled by the veil in the middle of the stack rather than
+   by keeping the centre column clear. */
 const desktopLayers: Layer[] = [
-  // Left column
-  { key: "hero-01", x: "-3%", y: "8%",   w: "clamp(150px, 13vw, 250px)", ratio: "4/5", depth: 40, start: 0.00, rotate: -2.5 },
-  { key: "hero-04", x: "3%",  y: "42%",  w: "clamp(140px, 12vw, 225px)", ratio: "3/2", depth: 52, start: 0.05, rotate: 2 },
-  { key: "hero-09", x: "-2%", y: "78%",  w: "clamp(140px, 12vw, 230px)", ratio: "3/2", depth: 44, start: 0.11, rotate: 1.5 },
-  { key: "hero-10", x: "4%",  y: "112%", w: "clamp(125px, 10vw, 195px)", ratio: "4/5", depth: 58, start: 0.18, rotate: 3 },
-  { key: "hero-03", x: "0%",  y: "148%", w: "clamp(150px, 13vw, 245px)", ratio: "4/3", depth: 62, start: 0.26, rotate: -2 },
+  // Left
+  { key: "hero-01", x: "-5%", y: "4%",   w: "clamp(180px, 20vw, 360px)", ratio: "4/5", depth: 44, start: 0.00, rotate: -2 },
+  { key: "hero-04", x: "8%",  y: "40%",  w: "clamp(170px, 19vw, 340px)", ratio: "3/2", depth: 56, start: 0.06, rotate: 2 },
+  { key: "hero-09", x: "-3%", y: "78%",  w: "clamp(175px, 19vw, 345px)", ratio: "3/2", depth: 40, start: 0.13, rotate: 1.5 },
+  { key: "hero-10", x: "6%",  y: "118%", w: "clamp(160px, 17vw, 300px)", ratio: "4/5", depth: 62, start: 0.21, rotate: 3 },
 
-  // Right column
-  { key: "hero-02", x: "87%", y: "6%",   w: "clamp(140px, 12vw, 235px)", ratio: "3/4", depth: 46, start: 0.02, rotate: 3 },
-  { key: "hero-05", x: "84%", y: "40%",  w: "clamp(135px, 11vw, 215px)", ratio: "3/4", depth: 38, start: 0.08, rotate: -2 },
-  { key: "hero-06", x: "89%", y: "76%",  w: "clamp(125px, 10vw, 195px)", ratio: "3/4", depth: 50, start: 0.14, rotate: -3 },
-  { key: "hero-08", x: "85%", y: "110%", w: "clamp(120px, 9vw, 180px)",  ratio: "1/1", depth: 56, start: 0.21, rotate: 2 },
-  { key: "hero-07", x: "88%", y: "146%", w: "clamp(140px, 12vw, 225px)", ratio: "3/2", depth: 60, start: 0.29, rotate: -1.5 },
+  // Through the centre — these pass behind the type
+  { key: "hero-03", x: "30%", y: "-8%",  w: "clamp(150px, 17vw, 310px)", ratio: "4/3", depth: 50, start: 0.03, rotate: -1.5 },
+  { key: "cta-02",  x: "40%", y: "92%",  w: "clamp(160px, 18vw, 330px)", ratio: "3/2", depth: 66, start: 0.10, rotate: 2 },
+  { key: "story-connection", x: "26%", y: "148%", w: "clamp(165px, 18vw, 320px)", ratio: "3/2", depth: 46, start: 0.24, rotate: -2 },
+  { key: "aba-01",  x: "46%", y: "186%", w: "clamp(150px, 16vw, 290px)", ratio: "4/5", depth: 58, start: 0.31, rotate: 1.5 },
+
+  // Right
+  { key: "hero-02", x: "76%", y: "0%",   w: "clamp(175px, 19vw, 345px)", ratio: "3/4", depth: 52, start: 0.02, rotate: 3 },
+  { key: "hero-05", x: "86%", y: "36%",  w: "clamp(165px, 18vw, 320px)", ratio: "3/4", depth: 38, start: 0.08, rotate: -2 },
+  { key: "hero-06", x: "74%", y: "74%",  w: "clamp(155px, 16vw, 295px)", ratio: "3/4", depth: 60, start: 0.15, rotate: -3 },
+  { key: "hero-08", x: "84%", y: "112%", w: "clamp(150px, 16vw, 280px)", ratio: "1/1", depth: 44, start: 0.19, rotate: 2 },
+  { key: "hero-07", x: "70%", y: "152%", w: "clamp(170px, 18vw, 330px)", ratio: "3/2", depth: 64, start: 0.27, rotate: -1.5 },
+  { key: "testimonial-01", x: "88%", y: "190%", w: "clamp(150px, 16vw, 285px)", ratio: "3/2", depth: 50, start: 0.34, rotate: 2.5 },
 ];
 
-/* On a phone there are no side margins to spare, so the photographs rise
-   in procession from below the fold and never reach the headline or CTA. */
+/* On a phone there is no room to scatter behind the type, so the
+   photographs rise in procession from below the fold instead. */
 const mobileLayers: Layer[] = [
-  { key: "hero-01", x: "-8%", y: "100%", w: "46vw", ratio: "4/5", depth: 16, start: 0.02, rotate: -3 },
-  { key: "hero-02", x: "56%", y: "118%", w: "44vw", ratio: "3/4", depth: 24, start: 0.10, rotate: 3 },
-  { key: "hero-03", x: "-6%", y: "136%", w: "50vw", ratio: "4/3", depth: 26, start: 0.18, rotate: 2 },
-  { key: "hero-05", x: "54%", y: "158%", w: "46vw", ratio: "3/4", depth: 28, start: 0.26, rotate: -2.5 },
+  { key: "hero-01", x: "-10%", y: "98%",  w: "56vw", ratio: "4/5", depth: 16, start: 0.02, rotate: -3 },
+  { key: "hero-02", x: "52%",  y: "116%", w: "54vw", ratio: "3/4", depth: 24, start: 0.10, rotate: 3 },
+  { key: "hero-03", x: "-8%",  y: "136%", w: "60vw", ratio: "4/3", depth: 26, start: 0.18, rotate: 2 },
+  { key: "hero-05", x: "50%",  y: "158%", w: "56vw", ratio: "3/4", depth: 28, start: 0.26, rotate: -2.5 },
 ];
+
+/** Shared by the blur layer and its mask so the two stay in step. */
+const VEIL_MASK =
+  "radial-gradient(58% 40% at 50% 40%, #000 0%, #000 48%, rgba(0,0,0,0.45) 76%, transparent 100%)";
 
 export function Hero() {
   const animate = useMotionAllowed();
@@ -95,7 +106,7 @@ function HeroMontage() {
   return (
     <section
       ref={stageRef}
-      className="relative h-[260svh] bg-cream-100"
+      className="relative h-[170svh] bg-cream-100"
       aria-label={`${t.home.heroLine1} ${t.home.heroLine2} ${t.home.heroEmphasis} ${t.home.heroLine3}`.trim()}
     >
       <div className="sticky top-0 grid h-svh place-items-center overflow-hidden">
@@ -119,14 +130,24 @@ function HeroMontage() {
           ))}
         </div>
 
-        {/* A soft veil under the type guarantees the headline always reads,
-            no matter which photograph happens to be passing behind it. */}
+        {/* Two layers guarantee the headline reads even with photographs
+            crossing behind it: a masked backdrop blur softens whatever is
+            passing through the centre, and a cream veil sits on top. The
+            mask means photographs out at the edges stay perfectly crisp. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-20 backdrop-blur-[4px]"
+          style={{
+            WebkitMaskImage: VEIL_MASK,
+            maskImage: VEIL_MASK,
+          }}
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-20"
           style={{
             background:
-              "radial-gradient(58% 46% at 50% 46%, rgba(251,249,245,0.94) 0%, rgba(251,249,245,0.72) 55%, rgba(251,249,245,0) 100%)",
+              "radial-gradient(60% 42% at 50% 40%, rgba(251,249,245,0.95) 0%, rgba(251,249,245,0.89) 46%, rgba(251,249,245,0.46) 76%, rgba(251,249,245,0) 100%)",
           }}
         />
 
@@ -135,7 +156,7 @@ function HeroMontage() {
           style={{ scale: titleScale, y: titleY }}
           className="relative z-30 flex w-full flex-col items-center px-6 text-center"
         >
-          <Badges />
+          <Credentials />
 
           <h1 className="font-display mt-7 max-w-[min(52rem,70vw)] text-[clamp(2.5rem,6.1vw,5.75rem)] leading-[0.98] tracking-[-0.03em] text-navy-900">
             <Rise delay={0.15}>{t.home.heroLine1}</Rise>{" "}
@@ -237,7 +258,7 @@ function PhotoLayer({
     >
       <div
         style={{ aspectRatio: layer.ratio, rotate: `${layer.rotate ?? 0}deg` }}
-        className="grain relative overflow-hidden rounded-2xl shadow-[0_28px_60px_-24px_rgba(0,30,100,0.42)] ring-1 ring-black/5"
+        className="grain relative overflow-hidden shadow-[0_34px_70px_-26px_rgba(0,30,100,0.5)] ring-1 ring-black/5"
       >
         <Img
           name={layer.key}
@@ -267,20 +288,25 @@ function Rise({ children, delay }: { children: React.ReactNode; delay: number })
   );
 }
 
-function Badges() {
+/**
+ * The credential, set as editorial credit type between two hairline rules.
+ * It was a pair of rounded chips, which read as interface furniture rather
+ * than as an earned distinction.
+ */
+function Credentials() {
   const { t } = useLocale();
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2.5">
-      <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-100/80 px-4 py-1.5 text-center text-[0.75rem] font-semibold text-cyan-600 backdrop-blur">
-        <span className="size-1.5 shrink-0 rounded-full bg-cyan-500" aria-hidden />
-        {t.home.creds.cac}
-      </span>
-      <span
-        lang="es"
-        className="inline-flex items-center rounded-full border border-ember-300/70 bg-ember-100/80 px-4 py-1.5 text-[0.75rem] font-semibold text-ember-600 backdrop-blur"
-      >
-        {t.spanish.badge}
-      </span>
+    <div className="flex flex-col items-center">
+      <span aria-hidden className="h-px w-14 bg-navy-900/25" />
+      <p className="type-eyebrow mt-5 text-navy-800">{t.home.creds.cacShort}</p>
+      <p className="mt-2.5 text-[0.8125rem] tracking-wide text-ink-500">
+        {t.home.creds.cacQualifier}
+        <span aria-hidden className="mx-2.5 text-ink-300">
+          &middot;
+        </span>
+        <span lang="es">{t.spanish.badge}</span>
+      </p>
+      <span aria-hidden className="mt-5 h-px w-14 bg-navy-900/25" />
     </div>
   );
 }
@@ -293,7 +319,7 @@ function StillHero() {
       <div className="container-page">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <Badges />
+            <Credentials />
             <h1 className="font-display type-display-lg mt-7 text-navy-900">
               {t.home.heroLine1} {t.home.heroLine2}{" "}
               <em className="brand-gradient not-italic">{t.home.heroEmphasis}</em>
@@ -317,13 +343,13 @@ function StillHero() {
           <div className="grid grid-cols-2 gap-4">
             <Img
               name="hero-01"
-              wrapperClassName="aspect-[4/5] rounded-2xl calm-soften"
+              wrapperClassName="aspect-[4/5] calm-soften"
               sizes="(max-width: 1024px) 45vw, 25vw"
               priority
             />
             <Img
               name="hero-03"
-              wrapperClassName="mt-10 aspect-[4/5] rounded-2xl calm-soften"
+              wrapperClassName="mt-10 aspect-[4/5] calm-soften"
               sizes="(max-width: 1024px) 45vw, 25vw"
             />
           </div>

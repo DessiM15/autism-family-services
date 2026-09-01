@@ -12,7 +12,7 @@ import { telHref } from "@/lib/utils";
 
 /* One photograph per step, so the sequence reads as a picture story. */
 const stepImages = [
-  "hero-07",            // arriving together
+  "clinic-exterior",    // the real front door at 6642 Phelan Blvd
   "aba-02",             // checking in
   "service-tutoring",   // waiting
   "visit-05",           // meeting the clinician
@@ -169,13 +169,18 @@ export function FirstVisitContent() {
                   </a>
                 </Reveal>
               </div>
-              <div className="min-h-[320px] bg-cream-200">
+              <div className="grid min-h-[320px] grid-rows-2">
+                <Img
+                  name="clinic-exterior"
+                  wrapperClassName="relative min-h-[160px]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
                 <iframe
                   title={t.contact.mapLabel}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(fullAddress())}&output=embed`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full min-h-[320px] w-full border-0"
+                  className="h-full min-h-[160px] w-full border-0"
                 />
               </div>
             </div>
