@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AUTISM FAMILY SERVICES OF BEAUMONT — DESIGN SYSTEM
+   Warm Cinematic. Brand colours derived from the AFS logo.
+   ============================================================ */
+
+@theme {
+  /* --- Brand ------------------------------------------------ */
+  --color-navy-950: #00133f;
+  --color-navy-900: #001e64;
+  --color-navy-800: #0a2f7a;
+  --color-navy-700: #14477a;
+  --color-navy-600: #1b4f82;
+  --color-navy-500: #2f6ba3;
+  --color-navy-400: #5c92c4;
+  --color-navy-300: #9dc0de;
+  --color-navy-200: #cbdff0;
+  --color-navy-100: #e6eff8;
+
+  --color-cyan-600: #0282c2;
+  --color-cyan-500: #03bbf8;
+  --color-cyan-400: #3fccfa;
+  --color-cyan-300: #7fd9fa;
+  --color-cyan-200: #b8ecfd;
+  --color-cyan-100: #e2f7fe;
+
+  --color-ember-600: #c8490a;
+  --color-ember-500: #f1620e;
+  --color-ember-400: #f8873f;
+  --color-ember-300: #fcb383;
+  --color-ember-100: #fdeade;
+
+  /* --- Neutrals: warm, not grey ----------------------------- */
+  --color-cream-50: #fefdfb;
+  --color-cream-100: #fbf9f5;
+  --color-cream-200: #f5f1ea;
+  --color-cream-300: #ebe4d9;
+  --color-cream-400: #d9cfc0;
+
+  --color-ink-900: #0b1a33;
+  --color-ink-700: #2c3e5c;
+  --color-ink-500: #5a6a85;
+  --color-ink-400: #8593a8;
+  --color-ink-300: #b3bdcc;
+
+  /* --- Type ------------------------------------------------- */
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* --- Motion ----------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* --- Layout ----------------------------------------------- */
+  --spacing-gutter: clamp(1.25rem, 5vw, 5rem);
+  --radius-card: 1.25rem;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+@layer base {
+  :root {
+    --header-h: 76px;
+    /* Motion scale — Calm Mode drives this to 0 and everything
+       that reads it goes still. One dial, whole site. */
+    --motion-scale: 1;
+    color-scheme: light;
+  }
+
+  @media (max-width: 1024px) {
+    :root {
+      --header-h: 64px;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns scrolling; never fight it */
+  }
+
+  body {
+    background-color: var(--color-cream-100);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern", "liga", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-cyan-200);
+    color: var(--color-navy-900);
+  }
+
+  /* Focus: always visible, never ugly. Accessibility is the brand. */
+  :focus-visible {
+    outline: 3px solid var(--color-cyan-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================
+   CALM MODE
+   A sensory-friendly switch. For an autism organisation this is
+   not a feature, it is a statement of practice.
+   ============================================================ */
+
+html[data-calm="true"] {
+  --motion-scale: 0;
+}
+
+html[data-calm="true"] *,
+html[data-calm="true"] *::before,
+html[data-calm="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Calm Mode softens contrast and mutes saturation — the visual
+   equivalent of turning the lights down a notch. */
+html[data-calm="true"] .calm-soften {
+  filter: saturate(0.72) contrast(0.94);
+}
+
+html[data-calm="true"] .calm-hide {
+  display: none !important;
+}
+
+/* Anything purely decorative disappears when the room gets quiet. */
+html[data-calm="true"] .decor {
+  opacity: 0.25 !important;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 90rem;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility container-prose {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 46rem;
+  padding-inline: var(--spacing-gutter);
+}
+
+/* Fluid display type — the cinematic voice */
+@utility type-display-xl {
+  font-size: clamp(2.75rem, 8.5vw, 8rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+@utility type-display-lg {
+  font-size: clamp(2.25rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+@utility type-display-md {
+  font-size: clamp(1.875rem, 4vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+@utility type-display-sm {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@utility type-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility type-lead {
+  font-size: clamp(1.0625rem, 1.35vw, 1.3125rem);
+  line-height: 1.65;
+  color: var(--color-ink-700);
+}
+
+/* The signature gradient — used sparingly, on the word that matters */
+@utility brand-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-navy-900) 0%,
+    var(--color-navy-600) 38%,
+    var(--color-cyan-500) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface-card {
+  background-color: var(--color-cream-50);
+  border: 1px solid var(--color-cream-300);
+  border-radius: var(--radius-card);
+}
+
+/* Film grain — the thing that makes cinematic photography read as
+   *photographed* rather than *pasted*. Very low opacity on purpose. */
+@utility grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-calm="true"] .grain::after {
+  opacity: 0;
+}
+
+/* ============================================================
+   COMPONENT PRIMITIVES
+   ============================================================ */
+
+/* Underline that draws itself on hover, left to right */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.45s var(--ease-out-expo);
+}
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1.5px;
+}
+
+/* Image reveal mask used by <Reveal variant="image"> */
+.reveal-mask {
+  clip-path: inset(0 0 100% 0);
+}
+
+.scrim-bottom {
+  background: linear-gradient(
+    to top,
+    rgb(0 19 63 / 0.82) 0%,
+    rgb(0 19 63 / 0.5) 32%,
+    rgb(0 19 63 / 0.1) 66%,
+    transparent 100%
+  );
+}
+
+.scrim-full {
+  background: linear-gradient(
+    to top,
+    rgb(0 19 63 / 0.78) 0%,
+    rgb(0 19 63 / 0.42) 50%,
+    rgb(0 19 63 / 0.55) 100%
+  );
+}
+
+/* Hide scrollbar on horizontal rails while keeping them scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respect the OS setting even before our JS boots. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-calm="false"]) {
+    --motion-scale: 0;
+  }
+  html:not([data-calm="false"]) *,
+  html:not([data-calm="false"]) *::before,
+  html:not([data-calm="false"]) *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Print: give schools and funders something clean to hand around. */
+@media print {
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+}
