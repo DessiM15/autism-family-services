@@ -96,33 +96,67 @@ export function SmoothScroll() {
     return () => window.clearTimeout(id);
   }, [pathname]);
 
-  /* --- In-page anchor clicks -------------------------------------------- */
+  /* --- Clicks on links that point at where we already are ---------------- */
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
-      const anchor = (event.target as HTMLElement | null)?.closest?.(
-        'a[href*="#"]',
-      ) as HTMLAnchorElement | null;
-      if (!anchor || anchor.target === "_blank") return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (event.button !== 0) return;
 
-      const url = new URL(anchor.href, window.location.href);
-      if (url.pathname !== window.location.pathname || !url.hash) return;
+      const anchor = (event.target as HTMLElement | null)?.closest?.("a") as
+        | HTMLAnchorElement
+        | null;
+      if (!anchor || anchor.target === "_blank" || anchor.hasAttribute("download")) return;
 
-      const target = document.querySelector(url.hash);
-      if (!target) return;
+      let url: URL;
+      try {
+        url = new URL(anchor.href, window.location.href);
+      } catch {
+        return;
+      }
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname !== window.location.pathname) return;
 
+      /*
+       * Same page. Next sees no navigation for an identical URL, so nothing
+       * resets the scroll — clicking the logo from halfway down the homepage
+       * simply did nothing. Handle both cases ourselves.
+       */
+      if (url.hash) {
+        const target = document.querySelector(url.hash);
+        if (!target) return;
+        event.preventDefault();
+        history.pushState(null, "", url.hash);
+        const lenis = lenisRef.current;
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, { offset: -100 });
+        } else {
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+        }
+        (target as HTMLElement).focus?.({ preventScroll: true });
+        return;
+      }
+
+      // No hash: take them to the top, which is what a logo click means.
       event.preventDefault();
-      history.pushState(null, "", url.hash);
+      if (window.location.hash) {
+        history.replaceState(null, "", url.pathname + url.search);
+      }
       const lenis = lenisRef.current;
       if (lenis) {
-        lenis.scrollTo(target as HTMLElement, { offset: -100 });
+        lenis.scrollTo(0, { immediate: false, force: true });
       } else {
-        target.scrollIntoView({ behavior: "auto", block: "start" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-      (target as HTMLElement).focus?.({ preventScroll: true });
     };
 
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    /*
+     * Capture phase on purpose. Next's <Link> calls preventDefault on the
+     * anchor itself, so a bubble-phase listener sees an already-handled
+     * event and bails — which is why clicking the logo from halfway down
+     * the homepage did nothing at all.
+     */
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
   }, []);
 
   return null;
