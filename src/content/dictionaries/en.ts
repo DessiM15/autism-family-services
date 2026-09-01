@@ -537,6 +537,35 @@ export const en = {
     clear: "Clear conversation",
   },
 
+  /* ---------------------------------------------------------- VOICE */
+  voice: {
+    speak: "Speak",
+    stop: "Stop",
+    listening: "Listening",
+    listeningHint: "Pause for a moment and I will answer",
+    heard: "Here is what I heard",
+    thinking: "Thinking",
+    speaking: "Speaking",
+    playReply: "Play this reply",
+    stopReply: "Stop playing",
+    repliesOn: "Spoken replies on",
+    repliesOff: "Spoken replies off",
+
+    permissionTitle: "Talk to us instead of typing",
+    permissionBody:
+      "We will ask your browser for the microphone. Speak your question, pause, and I will answer out loud.",
+    permissionPrivacy:
+      "Your browser sends the audio to its own speech service to turn it into text. Please do not say anything about a diagnosis, medication or health history. Save that for the phone.",
+    permissionAllow: "Turn on the microphone",
+    permissionCancel: "Not now",
+
+    unsupported:
+      "This browser cannot listen. Chrome, Edge and Safari can, or you are very welcome to type.",
+    denied:
+      "The microphone is blocked. You can allow it in your browser settings, or just type instead.",
+    noSpeech: "I did not catch that. Try again, or type your question.",
+  },
+
   /* ---------------------------------------------------------- FOOTER */
   footer: {
     tagline: "Providing ABA Therapy for Autism, behavioral and mental health supports to our community!",

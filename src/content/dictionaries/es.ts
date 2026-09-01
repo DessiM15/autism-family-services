@@ -505,6 +505,34 @@ export const es: Dictionary = {
     clear: "Borrar conversación",
   },
 
+  voice: {
+    speak: "Hablar",
+    stop: "Detener",
+    listening: "Escuchando",
+    listeningHint: "Haz una pausa y te respondo",
+    heard: "Esto es lo que escuché",
+    thinking: "Pensando",
+    speaking: "Hablando",
+    playReply: "Reproducir esta respuesta",
+    stopReply: "Detener reproducción",
+    repliesOn: "Respuestas habladas activadas",
+    repliesOff: "Respuestas habladas desactivadas",
+
+    permissionTitle: "Háblanos en vez de escribir",
+    permissionBody:
+      "Le pediremos el micrófono a tu navegador. Di tu pregunta, haz una pausa y te responderé en voz alta.",
+    permissionPrivacy:
+      "Tu navegador envía el audio a su propio servicio de voz para convertirlo en texto. Por favor no menciones diagnósticos, medicamentos ni historial de salud. Deja eso para el teléfono.",
+    permissionAllow: "Activar el micrófono",
+    permissionCancel: "Ahora no",
+
+    unsupported:
+      "Este navegador no puede escuchar. Chrome, Edge y Safari sí, o puedes escribir tu pregunta.",
+    denied:
+      "El micrófono está bloqueado. Puedes permitirlo en la configuración de tu navegador, o simplemente escribir.",
+    noSpeech: "No alcancé a escucharte. Inténtalo de nuevo o escribe tu pregunta.",
+  },
+
   footer: {
     tagline: "¡Brindando terapia ABA para el autismo y apoyos conductuales y de salud mental a nuestra comunidad!",
     motto: "Si lo vas a hacer, ¡hazlo con propósito!",

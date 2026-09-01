@@ -81,7 +81,31 @@ generated replies match. **One exception is intentional**: Jennifer's bio on
 the team page keeps hers, because that copy is verbatim and the client chose
 to preserve it exactly.
 
-### 5. Typography utilities
+### 5. Voice
+Visitors can talk to the assistant and hear it answer. Four things about it
+are deliberate:
+
+- **The microphone is never opened without an explanation first.** The first
+  tap shows what will happen and a plain-language privacy note, because
+  people speak far more freely than they type and browser speech recognition
+  sends the audio to Google or Apple to transcribe.
+- **Four seconds of silence ends the turn** and sends what was heard. That
+  endpointing is what makes it feel like a conversation rather than a form.
+- **Calm Mode keeps voice but never auto-speaks.** Voice is the accessible
+  option for some people, so it stays; audio starting by itself is exactly
+  what that switch exists to prevent, so each reply gets a play button and
+  the waveform goes still.
+- **The waveform is real.** It reads actual microphone amplitude through a
+  Web Audio analyser, so it doubles as proof the mic is working.
+
+Firefox has no `SpeechRecognition`, so the microphone button hides itself
+there and typing carries on as normal.
+
+**Trap worth knowing:** the `Permissions-Policy` header in `next.config.ts`
+must keep `microphone=(self)`. It was `microphone=()` at first, which silently
+disabled the whole feature with only a console warning to show for it.
+
+### 6. Typography utilities
 Custom type utilities are named `type-display-lg`, `type-lead`, `type-eyebrow`
 — **not** `text-*`. `tailwind-merge` treats every `text-*` class as the
 font-size/colour group and will silently drop `text-display-lg` when it sits
@@ -97,6 +121,8 @@ fully without any of it.
 | Variable | Effect when unset |
 | --- | --- |
 | `ANTHROPIC_API_KEY` | Chatbot falls back to a built-in keyword responder covering rates, insurance, diagnostics, location, services, grants, careers and ABA. Fully demonstrable. |
+| `ELEVENLABS_API_KEY` | The assistant still speaks, using the best voice on the visitor's own device. `/api/speech` returns 204 and the client falls back automatically. |
+| `ELEVENLABS_VOICE_ID_EN` / `_ES` / `ELEVENLABS_MODEL` | Sensible defaults are used. |
 | `CHAT_MODEL` | Defaults to `claude-opus-5`. |
 | `CONTACT_FORWARD_URL` | Callback requests are logged server-side instead of forwarded. |
 | `CONTACT_FORWARD_TOKEN` | No `Authorization` header on the forward. |

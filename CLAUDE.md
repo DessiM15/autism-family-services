@@ -30,6 +30,10 @@ Three things that will bite you if you skip them:
    diagnose, assess symptoms, or state which insurance is accepted. See the
    "two rules" section of the README.
 
+4. **The `Permissions-Policy` header must keep `microphone=(self)`.** Setting
+   it to `microphone=()` disables the chat assistant's voice input across the
+   whole site, and the only symptom is a console warning.
+
 Copy from the current site is verbatim. Don't reword `t.home.missionP1`, the
 values list, the CAC explainer, the ABA copy, the team bios, the service names
 and rates, or the grant descriptions.
