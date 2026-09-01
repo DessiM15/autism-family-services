@@ -157,10 +157,15 @@ export function MobileNav({ onDark = false }: { onDark?: boolean }) {
                 <div className="mt-8 space-y-4">
                   <a
                     href={telHref(site.phone)}
-                    className="flex items-center justify-center gap-3 rounded-full bg-navy-900 px-6 py-4 font-semibold text-cream-50"
+                    className="flex flex-col items-center gap-1 rounded-2xl bg-navy-900 px-6 py-4 font-semibold text-cream-50"
                   >
-                    <Phone className="size-4" aria-hidden />
-                    {site.phone}
+                    <span className="flex items-center gap-3">
+                      <Phone className="size-4" aria-hidden />
+                      {site.phone}
+                    </span>
+                    <span lang="es" className="text-[0.75rem] font-normal text-cyan-300">
+                      {t.spanish.badge}
+                    </span>
                   </a>
 
                   <div className="flex items-center justify-between rounded-2xl border border-cream-300 bg-cream-50 p-4">

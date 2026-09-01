@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Languages, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
@@ -77,8 +77,22 @@ export function ContactContent() {
                 </Reveal>
               </div>
 
+              {/* Spanish-speaking staff — surfaced right beside the phone
+                  number, which is where the decision to call gets made. */}
+              <Reveal variant="up" delay={0.24}>
+                <div className="mt-8 rounded-2xl border border-ember-300/50 bg-ember-100/50 p-6">
+                  <p className="flex items-center gap-2.5 font-display text-[1.25rem] text-navy-900">
+                    <Languages className="size-5 shrink-0 text-ember-600" aria-hidden />
+                    <span lang="es">{t.spanish.heading}</span>
+                  </p>
+                  <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-700">
+                    {t.spanish.body}
+                  </p>
+                </div>
+              </Reveal>
+
               {/* Map */}
-              <Reveal variant="up" delay={0.26}>
+              <Reveal variant="up" delay={0.3}>
                 <div className="mt-10 overflow-hidden rounded-2xl border border-cream-300">
                   <iframe
                     title={t.contact.mapLabel}

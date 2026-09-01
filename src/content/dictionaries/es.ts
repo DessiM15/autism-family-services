@@ -53,6 +53,13 @@ export const es: Dictionary = {
     location: "Clínica en Beaumont, TX",
   },
 
+  spanish: {
+    badge: "Se habla español",
+    heading: "Te atendemos en español",
+    body: "Puedes llamarnos, visitarnos y recibir atención en español. Al llamar, pide hablar con alguien del personal que hable español y nos aseguraremos de atenderte.",
+    short: "Personal que habla español",
+  },
+
   home: {
     heroLine1: "Ayudando a familias, escuelas y personas",
     heroLine2: "a vivir una vida con",

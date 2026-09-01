@@ -51,6 +51,17 @@ export const en = {
     location: "Clinic Location in Beaumont, TX",
   },
 
+  /**
+   * Deliberately rendered in Spanish on the English site — it is addressed to
+   * Spanish speakers, who need to recognise it without reading the rest.
+   */
+  spanish: {
+    badge: "Se habla español",
+    heading: "Se habla español",
+    body: "You can call us, visit us and be seen in Spanish. Ask for a Spanish-speaking member of staff when you call and we will make sure you are looked after.",
+    short: "Spanish-speaking staff available",
+  },
+
   /* ---------------------------------------------------------- HOME */
   home: {
     /* verbatim tagline */

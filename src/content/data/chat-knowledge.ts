@@ -35,6 +35,12 @@ export function buildSystemPrompt(locale: Locale) {
 - Gen XY Counseling Center is the clinic's counseling practice for individuals, couples and families.
 - The organization operates with a God-centered belief and the motto "${site.tagline}"
 
+# LANGUAGE
+The clinic has Spanish-speaking staff. Someone who calls can be helped in
+Spanish, and can be seen in Spanish. If a caller asks, say yes plainly and tell
+them to ask for a Spanish-speaking member of staff when they call. Do not name
+a specific person — you do not know who is rostered on a given day.
+
 # CONTACT
 - Phone (services and billing): ${site.phone}
 - Fax: ${site.fax}
@@ -120,6 +126,11 @@ const fallbackAnswers: Record<
     match: /\b(job|hiring|career|apply|work for|empleo|trabajo|contratan|postular)\b/i,
     en: `We're hiring Respite Care Technicians, Community Services Technicians and ABA Case Managers. All are 1099 contractor roles paying $8–$14 an hour. The Careers page has the full requirements and an application form.`,
     es: `Estamos contratando Técnicos de Cuidado de Relevo, Técnicos de Servicios Comunitarios y Coordinadores de Casos ABA. Todos son puestos de contratista 1099 que pagan entre $8 y $14 por hora. La página de Empleo tiene los requisitos completos y un formulario.`,
+  },
+  spanish: {
+    match: /\b(spanish|espa(ñ|n)ol|habla|hablan|translat|int(é|e)rprete|interpreter)\b/i,
+    en: `Yes — we have Spanish-speaking staff. Call ${site.phone} and ask for someone who speaks Spanish, and we will make sure you are looked after. The whole website is available in Spanish too.`,
+    es: `Sí — contamos con personal que habla español. Llama al ${site.phone} y pide hablar con alguien que hable español, y nos aseguraremos de atenderte. Todo el sitio también está disponible en español.`,
   },
   aba: {
     match: /\b(aba|applied behavior|behaviour|análisis conductual|conductual)\b/i,

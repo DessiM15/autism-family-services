@@ -112,6 +112,12 @@ export function Header() {
               <span className="font-semibold">{t.banner.accepting}</span>
               <span className="text-cream-100/40">|</span>
               <span className="text-cream-100/70">{t.banner.location}</span>
+              <span className="text-cream-100/40">|</span>
+              {/* Rendered in Spanish on both locales — it is addressed to
+                  Spanish speakers scanning the page for it. */}
+              <span lang="es" className="font-semibold text-cyan-300">
+                {t.spanish.badge}
+              </span>
             </p>
             <div className="flex items-center gap-5">
               <CalmToggle tone="light" />

@@ -122,6 +122,9 @@ export function Footer() {
                   <a href={telHref(site.phone)} className="link-draw text-lg font-semibold">
                     {site.phone}
                   </a>
+                  <span lang="es" className="mt-1 block text-[0.8125rem] text-cyan-300">
+                    {t.spanish.badge}
+                  </span>
                 </ContactRow>
               </li>
               <li>

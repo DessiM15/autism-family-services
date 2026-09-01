@@ -116,16 +116,26 @@ make it chattier.
 
 - **Accepted insurance plans.** The single most-asked question, and it is
   nowhere on the current site. `t.servicesPage.insurancePlaceholder` holds the
-  spot.
+  spot. *Being collected at the client presentation.*
 - **Real clinic photography** — the building, waiting area, therapy rooms and
   the sensory space. The First Visit walkthrough is built for it and is
-  dramatically stronger with real rooms.
-- **Whether any staff speak Spanish.** If yes it becomes a header badge; if no
-  the chatbot should say so honestly.
-- **Where callback submissions should go** (email, Formspree, HIPAA-compliant
-  provider, or their EHR).
+  dramatically stronger with real rooms. Note that Google Street View imagery
+  is © Google and is not licensed for use here; photos on the clinic's own
+  Google Business Profile are only usable if the clinic uploaded them. A
+  fifteen-minute phone walk-round by staff is the right source.
+- **Where callback submissions should go.** `deliver()` in
+  `src/app/api/contact/route.ts` is the single seam — point
+  `CONTACT_FORWARD_URL` at whatever system ends up handling intake.
 - A refresh of the grants list — their own copy notes it hasn't been updated
   since 2017. It is reproduced verbatim, disclaimer included.
+
+**Resolved:** the clinic *does* have Spanish-speaking staff. "Se habla
+español" now appears in the announcement strip, the hero, the mobile menu and
+the footer (always rendered in Spanish, `lang="es"`, on both locales — it is
+addressed to Spanish speakers scanning for it), there is a callout beside the
+phone number on the Contact page, and the chatbot answers the question
+directly in both languages. It deliberately never names an individual, since
+it cannot know who is rostered.
 
 ---
 

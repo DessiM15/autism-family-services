@@ -275,6 +275,12 @@ function Badges() {
         <span className="size-1.5 shrink-0 rounded-full bg-cyan-500" aria-hidden />
         {t.home.creds.cac}
       </span>
+      <span
+        lang="es"
+        className="inline-flex items-center rounded-full border border-ember-300/70 bg-ember-100/80 px-4 py-1.5 text-[0.75rem] font-semibold text-ember-600 backdrop-blur"
+      >
+        {t.spanish.badge}
+      </span>
     </div>
   );
 }
