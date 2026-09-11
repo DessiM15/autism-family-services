@@ -165,6 +165,17 @@ export function Footer() {
               <Link href={href("/staff")} className="link-draw hover:text-cream-100">
                 {t.footer.staffPortal}
               </Link>
+              <p>
+                {t.footer.designedBy}{" "}
+                <a
+                  href="https://smartscaleagent.com/contact"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-draw hover:text-cream-100"
+                >
+                  Smart Scale, LLC
+                </a>
+              </p>
             </div>
           </div>
           <p className="mt-5 max-w-3xl text-[0.75rem] leading-relaxed text-cream-100/40">

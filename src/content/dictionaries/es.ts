@@ -543,6 +543,7 @@ export const es: Dictionary = {
     crisisBody:
       "Si tú o alguien que quieres está en peligro inmediato, llama al 911. Estas líneas son gratuitas, confidenciales y contestan las 24 horas.",
     staffPortal: "Portal del Personal",
+    designedBy: "Sitio web diseñado por",
     rights: "Autism Family Services of Beaumont LLC",
     photoDisclosure:
       "Las fotografías de este sitio son ilustrativas y no representan a clientes de Autism Family Services.",

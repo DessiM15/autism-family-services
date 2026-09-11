@@ -577,6 +577,7 @@ export const en = {
     crisisBody:
       "If you or someone you love is in immediate danger, call 911. These lines are free, confidential and answer 24 hours a day.",
     staffPortal: "Staff Portal",
+    designedBy: "Website designed by",
     rights: "Autism Family Services of Beaumont LLC",
     photoDisclosure:
       "Photography on this site is illustrative and does not depict clients of Autism Family Services.",
