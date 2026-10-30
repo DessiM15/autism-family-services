@@ -55,7 +55,7 @@ export function HappeningContent() {
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
                     href={telHref(site.phone)}
-                    className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-navy-900 px-7 font-semibold text-cream-50 transition-colors hover:bg-navy-800"
+                    className="inline-flex min-h-14 py-3 text-center leading-tight sm:whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-navy-900 px-7 font-semibold text-cream-50 transition-colors hover:bg-navy-800"
                   >
                     <Phone className="size-4" aria-hidden />
                     {t.whatsHappening.registerCta}
@@ -151,7 +151,7 @@ export function HappeningContent() {
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={telHref(site.phone)}
-                className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
+                className="inline-flex min-h-14 py-3 text-center leading-tight sm:whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
               >
                 <Phone className="size-4 text-cyan-600" aria-hidden />
                 {site.phone}

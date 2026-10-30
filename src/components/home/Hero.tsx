@@ -196,7 +196,7 @@ function HeroMontage() {
             </ButtonLink>
             <a
               href={telHref(site.phone)}
-              className="group inline-flex h-14 whitespace-nowrap items-center gap-2.5 rounded-full border border-cream-400 bg-cream-50/80 px-7 font-semibold text-navy-900 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-navy-300 hover:bg-white"
+              className="group inline-flex min-h-14 py-3 text-center leading-tight sm:whitespace-nowrap items-center gap-2.5 rounded-full border border-cream-400 bg-cream-50/80 px-7 font-semibold text-navy-900 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-navy-300 hover:bg-white"
             >
               <Phone className="size-4 text-cyan-600" aria-hidden />
               {t.home.heroCtaSecondary}
@@ -338,7 +338,7 @@ function StillHero() {
               </ButtonLink>
               <a
                 href={telHref(site.phone)}
-                className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full border border-cream-400 bg-cream-50 px-7 font-semibold text-navy-900"
+                className="inline-flex min-h-14 py-3 text-center leading-tight sm:whitespace-nowrap items-center justify-center gap-2.5 rounded-full border border-cream-400 bg-cream-50 px-7 font-semibold text-navy-900"
               >
                 <Phone className="size-4 text-cyan-600" aria-hidden />
                 {t.home.heroCtaSecondary}

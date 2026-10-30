@@ -127,7 +127,7 @@ export function FirstVisitContent() {
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
                     href={telHref(site.phone)}
-                    className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
+                    className="inline-flex min-h-14 py-3 text-center leading-tight sm:whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
                   >
                     <Phone className="size-4 text-cyan-600" aria-hidden />
                     {site.phone}
