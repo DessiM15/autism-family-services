@@ -9,7 +9,7 @@ import { SplitText } from "@/components/motion/SplitText";
 import { ButtonLink } from "@/components/ui/Button";
 import { services } from "@/content/data/services";
 import { site } from "@/lib/site";
-import { telHref } from "@/lib/utils";
+import { telHref, cn } from "@/lib/utils";
 
 /**
  * The clinic has no dated event feed, only programmes that run on a regular
@@ -50,13 +50,21 @@ export function EventsStrip() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-12 grid gap-5 md:grid-cols-3" stagger={0.09}>
-          {PROGRAMMES.map((programme) => {
+        {/* Three across only from lg: at tablet width three columns leave
+            about 160px for text and the cards fall apart. Two across with
+            the last card full width keeps every card readable. */}
+        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.09}>
+          {PROGRAMMES.map((programme, i) => {
             const service = services.find((s) => s.slug === programme.slug);
             if (!service) return null;
+            const isLast = i === PROGRAMMES.length - 1;
 
             return (
-              <RevealItem key={programme.slug} variant="up" className="h-full">
+              <RevealItem
+                key={programme.slug}
+                variant="up"
+                className={cn("h-full", isLast && "sm:col-span-2 lg:col-span-1")}
+              >
                 <article className="surface-card flex h-full flex-col p-7">
                   <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-ember-100 px-3 py-1 text-[0.6875rem] font-semibold text-ember-600">
                     <Repeat className="size-3" aria-hidden />
@@ -72,8 +80,10 @@ export function EventsStrip() {
                     </p>
                   )}
 
-                  <div className="mt-6 flex items-center justify-between gap-4 border-t border-cream-300 pt-5">
-                    <span className="font-display text-[1.375rem] text-navy-900">
+                  {/* The rate and the button never share a line they cannot
+                      both fit on: the row wraps, and neither breaks internally. */}
+                  <div className="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-cream-300 pt-5">
+                    <span className="font-display text-[1.375rem] whitespace-nowrap text-navy-900">
                       {pick(service.rate)}
                     </span>
 
@@ -82,14 +92,14 @@ export function EventsStrip() {
                         href={site.registrationUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex h-10 items-center rounded-full bg-navy-900 px-4 text-[0.8125rem] font-semibold text-cream-50 transition-colors hover:bg-navy-800"
+                        className="inline-flex h-10 shrink-0 items-center rounded-full bg-navy-900 px-4 text-[0.8125rem] font-semibold whitespace-nowrap text-cream-50 transition-colors hover:bg-navy-800"
                       >
                         {t.home.register}
                       </a>
                     ) : (
                       <a
                         href={telHref(site.phone)}
-                        className="inline-flex h-10 items-center gap-1.5 rounded-full border border-cream-400 px-4 text-[0.8125rem] font-semibold text-navy-900 transition-colors hover:border-navy-300"
+                        className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full border border-cream-400 px-4 text-[0.8125rem] font-semibold whitespace-nowrap text-navy-900 transition-colors hover:border-navy-300"
                       >
                         <Phone className="size-3.5 text-cyan-600" aria-hidden />
                         {t.home.askUs}

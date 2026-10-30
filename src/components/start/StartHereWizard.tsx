@@ -264,17 +264,17 @@ export function StartHereWizard() {
                 <p className="font-display text-[1.5rem] leading-snug">
                   {t.startHere.talkToSomeone}
                 </p>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
                     href={telHref(site.phone)}
-                    className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
+                    className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
                   >
                     <Phone className="size-4 text-cyan-600" aria-hidden />
                     {site.phone}
                   </a>
                   <Link
                     href={href("/contact")}
-                    className="inline-flex h-14 items-center justify-center rounded-full border border-cream-100/25 px-7 font-semibold text-cream-100 transition-colors hover:bg-cream-100/10"
+                    className="inline-flex h-14 whitespace-nowrap items-center justify-center rounded-full border border-cream-100/25 px-7 font-semibold text-cream-100 transition-colors hover:bg-cream-100/10"
                   >
                     {t.common.requestCallback}
                   </Link>

@@ -109,7 +109,11 @@ function HeroMontage() {
       className="relative h-[170svh] bg-cream-100"
       aria-label={`${t.home.heroLine1} ${t.home.heroLine2} ${t.home.heroEmphasis} ${t.home.heroLine3}`.trim()}
     >
-      <div className="sticky top-0 grid h-svh place-items-center overflow-hidden">
+      {/* Padded by the header height and the scroll-cue zone so the headline
+          block is centred in the space a visitor can actually see. On a
+          short phone the whole block would otherwise overflow the stage and
+          get clipped by the fixed header and the cue. */}
+      <div className="sticky top-0 grid h-svh place-items-center overflow-hidden pt-[var(--header-h)] pb-10 sm:pb-24">
         {/* Warm light behind everything */}
         <div
           aria-hidden
@@ -158,7 +162,7 @@ function HeroMontage() {
         >
           <Credentials />
 
-          <h1 className="font-display mt-7 max-w-[min(52rem,70vw)] text-[clamp(2.5rem,6.1vw,5.75rem)] leading-[0.98] tracking-[-0.03em] text-navy-900">
+          <h1 className="font-display mt-5 max-w-[min(52rem,88vw)] text-[clamp(2.125rem,6.1vw,5.75rem)] leading-[0.98] tracking-[-0.03em] text-navy-900 sm:mt-7 md:max-w-[min(52rem,70vw)]">
             <Rise delay={0.15}>{t.home.heroLine1}</Rise>{" "}
             <Rise delay={0.28}>{t.home.heroLine2}</Rise>{" "}
             <Rise delay={0.4}>
@@ -176,7 +180,7 @@ function HeroMontage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="type-lead mt-7 max-w-xl text-balance"
+            className="type-lead mt-5 max-w-xl text-balance sm:mt-7"
           >
             {t.home.heroSub}
           </motion.p>
@@ -185,14 +189,14 @@ function HeroMontage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+            className="mt-7 flex flex-col items-center gap-3 sm:mt-9 sm:flex-row sm:flex-wrap"
           >
             <ButtonLink href={href("/start-here")} size="lg" arrow>
               {t.home.heroCtaPrimary}
             </ButtonLink>
             <a
               href={telHref(site.phone)}
-              className="group inline-flex h-14 items-center gap-2.5 rounded-full border border-cream-400 bg-cream-50/80 px-7 font-semibold text-navy-900 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-navy-300 hover:bg-white"
+              className="group inline-flex h-14 whitespace-nowrap items-center gap-2.5 rounded-full border border-cream-400 bg-cream-50/80 px-7 font-semibold text-navy-900 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-navy-300 hover:bg-white"
             >
               <Phone className="size-4 text-cyan-600" aria-hidden />
               {t.home.heroCtaSecondary}
@@ -201,9 +205,11 @@ function HeroMontage() {
         </motion.div>
 
         {/* ------------------------------------------------ Scroll cue */}
+        {/* Hidden on phones: there is no spare height below the buttons, and
+            the cue was printing over the Call button. */}
         <motion.div
           style={{ opacity: cueOpacity }}
-          className="absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-2"
+          className="absolute bottom-7 left-1/2 z-30 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
         >
           <span className="type-eyebrow text-ink-400">{t.common.scrollToExplore}</span>
           <motion.span
@@ -326,13 +332,13 @@ function StillHero() {
               {t.home.heroLine3 ? ` ${t.home.heroLine3}` : ""}
             </h1>
             <p className="type-lead mt-6 max-w-xl">{t.home.heroSub}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink href={href("/start-here")} size="lg">
                 {t.home.heroCtaPrimary}
               </ButtonLink>
               <a
                 href={telHref(site.phone)}
-                className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full border border-cream-400 bg-cream-50 px-7 font-semibold text-navy-900"
+                className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full border border-cream-400 bg-cream-50 px-7 font-semibold text-navy-900"
               >
                 <Phone className="size-4 text-cyan-600" aria-hidden />
                 {t.home.heroCtaSecondary}

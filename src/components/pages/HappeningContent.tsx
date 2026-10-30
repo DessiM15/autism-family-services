@@ -10,7 +10,7 @@ import { Img } from "@/components/ui/Img";
 import { Parallax } from "@/components/motion/Parallax";
 import { ButtonLink } from "@/components/ui/Button";
 import { site } from "@/lib/site";
-import { telHref } from "@/lib/utils";
+import { telHref, cn } from "@/lib/utils";
 
 export function HappeningContent() {
   const { t, href } = useLocale();
@@ -52,10 +52,10 @@ export function HappeningContent() {
                 <p className="type-lead mt-7">{t.whatsHappening.shapeBody}</p>
               </Reveal>
               <Reveal variant="up" delay={0.2}>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
                     href={telHref(site.phone)}
-                    className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-navy-900 px-7 font-semibold text-cream-50 transition-colors hover:bg-navy-800"
+                    className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-navy-900 px-7 font-semibold text-cream-50 transition-colors hover:bg-navy-800"
                   >
                     <Phone className="size-4" aria-hidden />
                     {t.whatsHappening.registerCta}
@@ -90,17 +90,23 @@ export function HappeningContent() {
       <Section tone="white" size="md">
         <div className="container-page">
           <div className="max-w-2xl">
+            {/* The page hero already uses the main heading; the lead line
+                heads this section instead of being repeated as an eyebrow. */}
             <Reveal variant="up">
-              <Eyebrow>{t.whatsHappening.body}</Eyebrow>
-              <h2 className="type-display-sm mt-5 text-navy-900">
-                {t.whatsHappening.heading}
-              </h2>
+              <h2 className="type-display-sm text-navy-900">{t.whatsHappening.body}</h2>
             </Reveal>
           </div>
 
-          <RevealGroup className="mt-12 grid gap-6 md:grid-cols-3" stagger={0.1}>
-            {programmes.map((item) => (
-              <RevealItem key={item.title} variant="up" className="h-full">
+          <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
+            {programmes.map((item, i) => (
+              <RevealItem
+                key={item.title}
+                variant="up"
+                className={cn(
+                  "h-full",
+                  i === programmes.length - 1 && "sm:col-span-2 lg:col-span-1",
+                )}
+              >
                 <article className="surface-card flex h-full flex-col overflow-hidden">
                   <div className="grain relative aspect-[16/10]">
                     <Img
@@ -142,10 +148,10 @@ export function HappeningContent() {
                 </p>
               </div>
             </div>
-            <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={telHref(site.phone)}
-                className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
+                className="inline-flex h-14 whitespace-nowrap items-center justify-center gap-2.5 rounded-full bg-cream-50 px-7 font-semibold text-navy-900 transition-transform hover:-translate-y-0.5"
               >
                 <Phone className="size-4 text-cyan-600" aria-hidden />
                 {site.phone}

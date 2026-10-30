@@ -4,7 +4,6 @@ import { Ban, BadgeCheck, Clock3, GraduationCap } from "lucide-react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { SplitText } from "@/components/motion/SplitText";
 import { Img } from "@/components/ui/Img";
 import { Parallax } from "@/components/motion/Parallax";
 import { CallbackForm } from "@/components/contact/CallbackForm";
@@ -19,17 +18,14 @@ export function CareersContent() {
         <div className="container-page">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
+              {/* The page hero already carries the heading; the eyebrow stays
+                  as the label for the list of roles. */}
               <Reveal variant="up">
                 <Eyebrow>{t.careers.title}</Eyebrow>
               </Reveal>
-              <SplitText
-                as="h2"
-                text={t.careers.heading}
-                className="type-display-md mt-6 text-navy-900"
-              />
 
               <RevealGroup
-                className="mt-10 divide-y divide-cream-300 border-y border-cream-300"
+                className="mt-8 divide-y divide-cream-300 border-y border-cream-300"
                 stagger={0.09}
               >
                 {t.careers.positions.map((role, i) => (
@@ -71,7 +67,7 @@ export function CareersContent() {
       {/* ------------------------------------------------ Details */}
       <Section tone="white" size="md">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             <Card
               icon={<BadgeCheck className="size-5" aria-hidden />}
               title={t.careers.requirementsHeading}

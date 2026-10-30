@@ -278,13 +278,21 @@ export function ServicesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {/* Three across only from lg; at tablet width the third card goes
+            full width rather than squeezing three narrow columns. */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {doors.map((door, i) => {
             const meta = audienceMeta[door.audience];
             const list = servicesFor(door.audience);
+            const isLast = i === doors.length - 1;
 
             return (
-              <Reveal key={door.audience} variant="up" delay={i * 0.1} className="h-full">
+              <Reveal
+                key={door.audience}
+                variant="up"
+                delay={i * 0.1}
+                className={cn("h-full", isLast && "sm:col-span-2 lg:col-span-1")}
+              >
                 <Link
                   href={href(`/services#${door.audience}`)}
                   className="group surface-card relative flex h-full flex-col overflow-hidden transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-24px_rgba(0,30,100,0.35)]"
@@ -531,9 +539,17 @@ export function TestimonialsSection() {
           />
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {t.testimonials.map((item, i) => (
-            <Reveal key={item.author + i} variant="up" delay={i * 0.1} className="h-full">
+            <Reveal
+              key={item.author + i}
+              variant="up"
+              delay={i * 0.1}
+              className={cn(
+                "h-full",
+                i === t.testimonials.length - 1 && "sm:col-span-2 lg:col-span-1",
+              )}
+            >
               <figure className="surface-card flex h-full flex-col p-8">
                 <Quote className="size-7 text-cyan-500" aria-hidden />
                 <blockquote className="mt-6 flex-1 text-[1.0625rem] leading-relaxed text-ink-700">
@@ -585,7 +601,7 @@ export function ClosingCTA() {
               </p>
             </Reveal>
             <Reveal variant="up" delay={0.22}>
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
                 <ButtonLink href={href("/contact")} variant="onDark" size="lg" arrow>
                   {t.common.requestCallback}
                 </ButtonLink>

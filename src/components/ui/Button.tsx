@@ -11,7 +11,11 @@ type Size = "sm" | "md" | "lg";
 const base =
   "group relative inline-flex items-center justify-center gap-2.5 rounded-full font-semibold " +
   "transition-[transform,background-color,color,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] " +
-  "active:scale-[0.985] disabled:pointer-events-none disabled:opacity-55 whitespace-nowrap";
+  "active:scale-[0.985] disabled:pointer-events-none disabled:opacity-55 " +
+  // A pill never breaks mid-label on a real screen, but on the narrowest
+  // phones a long Spanish label would otherwise run past the viewport, so
+  // below `sm` it is allowed to wrap and the pill grows to fit.
+  "max-w-full text-center whitespace-normal leading-tight sm:whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -25,9 +29,9 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-10 px-5 text-[0.875rem]",
-  md: "h-12 px-6 text-[0.9375rem]",
-  lg: "h-14 px-8 text-base",
+  sm: "min-h-10 px-5 py-2 text-[0.875rem]",
+  md: "min-h-12 px-6 py-2.5 text-[0.9375rem]",
+  lg: "min-h-14 px-8 py-3 text-base",
 };
 
 interface CommonProps {

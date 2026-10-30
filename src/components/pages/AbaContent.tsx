@@ -4,7 +4,6 @@ import { Sparkles } from "lucide-react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { SplitText } from "@/components/motion/SplitText";
 import { Parallax } from "@/components/motion/Parallax";
 import { Img } from "@/components/ui/Img";
 import { ButtonLink } from "@/components/ui/Button";
@@ -19,16 +18,13 @@ export function AbaContent() {
         <div className="container-page">
           <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-6">
+              {/* The page hero already carries this heading; repeating it
+                  here read as a rendering fault. */}
               <Reveal variant="up">
                 <Eyebrow>{t.abaPage.title}</Eyebrow>
               </Reveal>
-              <SplitText
-                as="h2"
-                text={t.abaPage.heading}
-                className="type-display-md mt-6 text-navy-900"
-              />
               <Reveal variant="up" delay={0.12}>
-                <p className="type-lead mt-7">{t.abaPage.intro}</p>
+                <p className="type-lead mt-6">{t.abaPage.intro}</p>
               </Reveal>
               <Reveal variant="up" delay={0.2}>
                 <p className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-cyan-100 px-5 py-2.5 text-[0.875rem] font-semibold text-cyan-600">
@@ -150,7 +146,7 @@ export function AbaContent() {
           </div>
 
           <Reveal variant="up" delay={0.18}>
-            <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <ButtonLink href={href("/services")} size="lg" arrow>
                 {t.home.servicesCta}
               </ButtonLink>

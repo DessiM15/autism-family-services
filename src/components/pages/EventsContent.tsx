@@ -34,11 +34,8 @@ export function EventsContent() {
                 <span className="grid size-12 place-items-center rounded-full bg-cyan-100 text-cyan-600">
                   <CalendarDays className="size-5" aria-hidden />
                 </span>
+                {/* Heading and lead live in the page hero directly above. */}
                 <Eyebrow className="mt-6">{t.events.title}</Eyebrow>
-                <h2 className="type-display-sm mt-5 text-navy-900">
-                  {t.events.heading}
-                </h2>
-                <p className="type-lead mt-5">{t.events.body}</p>
               </Reveal>
 
               <Reveal variant="up" delay={0.12}>

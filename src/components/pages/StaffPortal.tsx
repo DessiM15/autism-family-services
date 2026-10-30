@@ -75,12 +75,9 @@ export function StaffPortal({ accessCode }: { accessCode: string }) {
               <span className="grid size-12 place-items-center rounded-full bg-cyan-100 text-cyan-600">
                 <Lock className="size-5" aria-hidden />
               </span>
-              <h2 className="font-display mt-6 text-[1.75rem] text-navy-900">
-                {t.staff.heading}
-              </h2>
-              <p className="type-lead mt-3">{t.staff.body}</p>
 
-              <label className="mt-8 block">
+              {/* Heading and body live in the page hero directly above. */}
+              <label className="mt-6 block">
                 <span className="text-[0.8125rem] font-semibold text-ink-700">
                   {t.staff.passwordLabel}
                 </span>

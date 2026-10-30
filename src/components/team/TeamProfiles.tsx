@@ -50,7 +50,10 @@ function Profile({
           )}
         >
           {/* ------------------------------------------------ Portrait */}
-          <div className="lg:col-span-5">
+          {/* Capped below lg: at 90vw on a tablet the 4/5 portrait is taller
+              than the screen, so its scroll-driven reveal leaves the face
+              cropped for most of the scroll. */}
+          <div className="mx-auto w-full max-w-[26rem] lg:col-span-5 lg:mx-0 lg:max-w-none">
             {animate ? (
               <SaturatingPortrait member={member} />
             ) : (
